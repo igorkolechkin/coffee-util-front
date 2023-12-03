@@ -1,13 +1,59 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h2 {
+    @apply text-2xl font-bold text-center;
+  }
+
+  th,
+  td {
+    @apply p-3 border border-slate-800 text-center text-xs
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .header-link {
+    @apply block transition text-white hover:text-gray-100 focus:text-slate-50 lg:p-7 first:pl-0
+  }
+
+  .storage-item {
+    @apply w-1/4 text-center
+  }
+
+  .storage-link {
+    @apply block p-6 bg-white border border-gray-200 rounded-lg shadow-lg hover:bg-gray-100 transition
+  }
+
+  .product-add-btn {
+    @apply text-white bg-blue-600 focus:outline-none font-medium rounded-full text-2xl leading-none px-3 py-2 text-center ml-3
+  }
+
+  .blue-btn {
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-5 rounded transition
+  }
+
+  .storage-data td:first-child {
+    @apply text-left w-28
+  }
+
+  .storage-data thead tr {
+    @apply text-gray-700 uppercase bg-gray-50
+  }
+
+  .btn {
+    @apply text-white bg-blue-700 transition hover:bg-blue-800 rounded-lg px-5 py-2.5 focus:outline-none
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }

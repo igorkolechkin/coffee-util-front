@@ -7,24 +7,26 @@ const DataTable: React.FC<DataTablePropsType> = ({ data, classes }) => {
   
   return (
     <>
-      <table className={ classes }>
-        <thead>
-          <tr>
-            <th>{ data[0].row }</th>
-            { data[0].col.map((elem, index) => <th key={ getUniqKey(elem, index) }>{ elem }</th>) }
-          </tr>
-        </thead>
-        <tbody>
-          { data.map(({ row, col }, index) => (
-            index === 0 
-              ? ''
-              : <tr key={ getUniqKey(row, index) }>
-                <td>{ row }</td>
-                { col.map((elem, index) => <td key={ getUniqKey(elem, index)}>{ elem }</td>) }
-              </tr>
-          )) }
-        </tbody>
-      </table>
+      <div className='max-w-full overflow-auto'>
+        <table className={ classes }>
+          <thead>
+            <tr>
+              <th>{ data[0].row }</th>
+              { data[0].col.map((elem, index) => <th key={ getUniqKey(elem, index) }>{ elem }</th>) }
+            </tr>
+          </thead>
+          <tbody>
+            { data.map(({ row, col }, index) => (
+              index === 0 
+                ? ''
+                : <tr key={ getUniqKey(row, index) }>
+                  <td>{ row }</td>
+                  { col.map((elem, index) => <td key={ getUniqKey(elem, index)}>{ elem }</td>) }
+                </tr>
+            )) }
+          </tbody>
+        </table>
+      </div>
     </>
   )
 }

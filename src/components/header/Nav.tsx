@@ -14,9 +14,9 @@ const Nav: React.FC = () => {
       { 
         nav.length &&
         <nav>
-          <ul className='mr-auto flex flex-col lg:flex-row'>
+          <ul className='mr-auto flex lg:flex-row'>
             { nav.map(({ name, to }, index) => (
-              <li className='mb-4 lg:mb-0' key={ index }>
+              <li className='' key={ index }>
                 <CustomLink to={ to } classes='header-link' activeClass='text-white'>
                   { name }
                 </CustomLink>

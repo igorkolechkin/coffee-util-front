@@ -85,7 +85,7 @@ const AddProducts: React.FC = () => {
               <div className='mr-5 w-40 flex'>
                 <button 
                   type='button' 
-                  className='blue-btn'
+                  className='btn'
                   onClick={ () => productCountChange(id, false) }
                 >-</button>
                 <input
@@ -95,7 +95,7 @@ const AddProducts: React.FC = () => {
                 />
                 <button 
                   type='button' 
-                  className='blue-btn'
+                  className='btn'
                   onClick={ () => productCountChange(id, true) }
                 >+</button>
               </div>
@@ -111,7 +111,7 @@ const AddProducts: React.FC = () => {
           />
         </div>    
 
-        <button className='blue-btn w-28 mt-9' type='submit'>
+        <button className='btn w-28 mt-9' type='submit'>
           Send
         </button>
       </form>

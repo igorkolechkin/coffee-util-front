@@ -9,7 +9,7 @@ const Monthes: React.FC<MonthesType> = ({ month, setMonth }) => {
 
   return (
     <>
-      <select className='ml-8 rounded-lg px-5 py-3 outline-none bg-blue-700 text-white' 
+      <select className='ml-auto md:ml-8 rounded-lg px-5 py-2.5 outline-none bg-blue-700 text-white' 
         value={ month } 
         onChange={ e => setMonth(e.target.value) } 
       >

@@ -9,6 +9,7 @@ import { StorageInfoType } from '../../types/storages'
 import CellValueNavigate from './CellValueNavigate'
 import Monthes from './Monthes'
 import { changeMonthNumber } from './helperFunctions'
+import { useGetEarningsQuery } from '../../services/earnings'
 
 const StorageInfo: React.FC<{ id: string, storageInfo: StorageInfoType }> = ({ id, storageInfo }) => {
   const [ cellValue, setCellValue ] = useState<string>('price')
@@ -16,6 +17,7 @@ const StorageInfo: React.FC<{ id: string, storageInfo: StorageInfoType }> = ({ i
   
   const { data: products = [], isSuccess: isProductsLoading } = useGetProductsQuery(id)
   const { data: storagesQuantityQuery = [], isSuccess: isStoragesQuantityQueryLoading } = useGetStoragesQuantityQuery({ id, month })
+  const { data: earningsData, isSuccess: isEarningsLoading } = useGetEarningsQuery({ id, month })
   
   const storagesQuantityData = createStoragesQuantityData(storagesQuantityQuery, products, cellValue)
   const expenses = {
@@ -34,7 +36,11 @@ const StorageInfo: React.FC<{ id: string, storageInfo: StorageInfoType }> = ({ i
                 <Monthes month={ month } setMonth={ setMonth } />
               </div>
               <DataTable data={ storagesQuantityData } classes='storage-data' />
-              { cellValue === 'price' && <CalculationsBlock { ...expenses } /> }
+              { (cellValue === 'price' && isEarningsLoading) && 
+                <CalculationsBlock 
+                  { ...expenses } 
+                  earnings={{ cash: earningsData?.cash, card: earningsData.card } }
+                /> }
             </div>
           : <Loading />
       }

@@ -3,11 +3,11 @@ import { CalculationsBlockType } from '../../types/storages';
 import { getSumOfData } from './helperFunctions';
 import { useParams } from 'react-router-dom';
 
-const CalculationsBlock: React.FC<CalculationsBlockType> = ({ ingridients, storageExpenses }) => {
+const CalculationsBlock: React.FC<CalculationsBlockType> = ({ ingridients, storageExpenses, earnings }) => {
   const expenses = getSumOfData(Object.entries(storageExpenses).map(item => item[1])) + ingridients
-  const cash = useParams().id === '2' ? 8135 : 1175
-  const card = useParams().id === '2' ? 59149 : 7072
-
+  const cash = earnings.cash
+  const card = earnings.card
+  
   return (
     <>
       <div className='mt-5'>

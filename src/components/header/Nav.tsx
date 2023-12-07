@@ -6,7 +6,8 @@ const homeIcon = <svg className='w-6 h-6 text-white hover:text-gray-300 transiti
 const Nav: React.FC = () => {
   const nav: NavType = [
     { name: homeIcon, to:'/' },
-    { name: 'Add', to: '/add'}
+    { name: 'Add', to: '/add' },
+    { name: 'Report', to: '/report' }
   ]
 
   return (

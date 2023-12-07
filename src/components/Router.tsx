@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Storages from '../screens/Storages'
 import Storage from '../screens/Storage'
 import Add from '../screens/Add'
+import Report from '../screens/Report'
 import Layout from './Layout'
 import NotFound from '../screens/NotFound'
 
@@ -22,6 +23,10 @@ const Router: React.FC = (props) => {
         {
           path: 'add',
           element: <Add />
+        },
+        {
+          path: 'report',
+          element: <Report />
         },
         {
           path: '*',

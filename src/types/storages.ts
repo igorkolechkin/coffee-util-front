@@ -15,7 +15,11 @@ export interface StorageInfoType {
 
 export interface CalculationsBlockType {
   ingridients: number,
-  storageExpenses: StorageInfoType
+  storageExpenses: StorageInfoType,
+  earnings: {
+    cash: number,
+    card: number
+  }
 }
 
 export interface MonthesType {
